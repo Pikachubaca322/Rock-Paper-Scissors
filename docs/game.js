@@ -1,6 +1,6 @@
 
 function getComputerChoice() {
-    const choices = ['rock', 'paper', 'scissors'];
+    const choices = ['rock', 'paper', 'scissors', 'GUN'];
     const randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 }
@@ -17,11 +17,14 @@ function getWinner(playerChoice, computerChoice) {
     } else if (
         (playerChoice === 'rock' && computerChoice === 'scissors') ||
         (playerChoice === 'paper' && computerChoice === 'rock') ||
-        (playerChoice === 'scissors' && computerChoice === 'paper')
+        (playerChoice === 'scissors' && computerChoice === 'paper') ||
     ) {
         return "You win!";
     } else {
         return "Computer wins!";
+    }
+    if (computerChoice === 'GUN') {
+        return "Fuck you, you lose!";
     }
 }
 function updateUI({ playerChoice, computerChoice, result }) {
