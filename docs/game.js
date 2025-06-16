@@ -12,17 +12,23 @@ function playRound(playerChoice) {
 }
  playRound();
 function getWinner(playerChoice, computerChoice) {
-    if (playerChoice === computerChoice || computerChoice === 'GUN') {
+    if (playerChoice === computerChoice) {
         return "It's a tie!";
     } else if (
-        (playerChoice === 'rock' && computerChoice === 'scissors') ||
-        (playerChoice === 'paper' && computerChoice === 'rock') ||
-        (playerChoice === 'scissors' && computerChoice === 'paper')
+        (playerChoice === 'rock' && computerChoice === 'scissors' && computerChoice !== 'GUN') ||
+        (playerChoice === 'paper' && computerChoice === 'rock' && computerChoice !== 'GUN') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper' && computerChoice !== 'GUN')
     ) {
-        return "You win!";
+            return "You win!";
+    } else if (
+        (playerChoice === 'rock' && computerChoice === 'GUN') ||
+        (playerChoice === 'paper' && computerChoice === 'GUN') ||
+        (playerChoice === 'scissors' && computerChoice === 'GUN')
+    ) {
+            return "Fuck you, You lose!";
     } else {
-        return "Computer wins!";
-    }
+            return "Computer wins!";
+        }
 }
 function updateUI({ playerChoice, computerChoice, result }) {
     document.getElementById('player-choice').textContent = `You chose: ${playerChoice}`;
