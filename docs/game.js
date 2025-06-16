@@ -12,19 +12,16 @@ function playRound(playerChoice) {
 }
  playRound();
 function getWinner(playerChoice, computerChoice) {
-    if (playerChoice === computerChoice) {
+    if (playerChoice === computerChoice || computerChoice === 'GUN') {
         return "It's a tie!";
     } else if (
         (playerChoice === 'rock' && computerChoice === 'scissors') ||
         (playerChoice === 'paper' && computerChoice === 'rock') ||
-        (playerChoice === 'scissors' && computerChoice === 'paper') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
     ) {
         return "You win!";
     } else {
         return "Computer wins!";
-    }
-    if (computerChoice === 'GUN') {
-        return "Fuck you, you lose!";
     }
 }
 function updateUI({ playerChoice, computerChoice, result }) {
